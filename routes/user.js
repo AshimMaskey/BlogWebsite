@@ -18,7 +18,7 @@ router.post('/signup',async(req,res)=>{
 		password
 	});
 
-	return res.status(201).json({msg: "data inserted"}).redirect("/");
+	return res.redirect("/");
 	
 })
 // router.post('/signin',(req,res)=>{
