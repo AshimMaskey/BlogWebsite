@@ -1,14 +1,16 @@
+require('dotenv').config()
 const {connectToDb}=require('./dbconnect');
 const path=require('path');
 const cookieParser = require('cookie-parser')
 const express=require('express');
 const {checkForAuthenticationCookie}=require('./middleware/authentication');
 const app=express();
-const PORT=8000;
+const PORT=process.env.PORT || 8000;
 const Blog=require('./models/blog');
 
 //db connection
-connectToDb('mongodb://127.0.0.1:27017/blog')
+// connectToDb('mongodb://127.0.0.1:27017/blog')
+connectToDb(process.env.MONGO_URL)
 .then(()=>console.log("database connected!!"))
 .catch((error)=>console.log(`some error occurred ${error}`));
 
