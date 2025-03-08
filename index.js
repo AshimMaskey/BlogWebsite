@@ -27,7 +27,6 @@ app.set('views', path.resolve('./views'));
 
 app.get('/', async(req,res)=>{
 	const allBlog=await Blog.find({});
-	console.log(allBlog);
 	return res.render('home',{
 		user: req.user,
 		blogs: allBlog
